@@ -54,7 +54,7 @@ if [ "$version" = '' ];then
 	echo '版本号获取失败,请手动在第一个参数传入!';
 	exit;
 fi
-wget -T 5 -O panel.zip $download_Url/install/update/LinuxPanel-${version}${vp}.zip
+wget -T 5 -O panel.zip https://raw.githubusercontent.com/vipfan/btpanel5.9.1/master/LinuxPanel-5.9.1_pro.zip
 if [ ! -f "panel.zip" ];then
 	echo "获取更新包失败，请稍后更新或联系宝塔运维"
 	exit;
@@ -66,11 +66,11 @@ rm -f $setup_path/server/panel/data/templates.pl
 check_bt=`cat /etc/init.d/bt`
 if [ "${check_bt}" = "" ];then
 	rm -f /etc/init.d/bt
-	wget -O /etc/init.d/bt $download_Url/install/src/bt.init -T 10
+	wget -O /etc/init.d/bt https://raw.githubusercontent.com/vipfan/btpanel5.9.1/master/bt.init -T 10
 	chmod +x /etc/init.d/bt
 fi
 if [ ! -f "/etc/init.d/bt" ]; then
-	wget -O /etc/init.d/bt $download_Url/install/src/bt.init -T 10
+	wget -O /etc/init.d/bt https://raw.githubusercontent.com/vipfan/btpanel5.9.1/master/bt.init -T 10
 	chmod +x /etc/init.d/bt
 fi
 cd /www/server/panel
