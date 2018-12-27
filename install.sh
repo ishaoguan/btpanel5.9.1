@@ -600,7 +600,7 @@ if [ ! -d '/etc/letsencrypt' ];then
 	fi
 fi
 
-wget -O acme_install.sh $download_Url/install/acme_install.sh
+wget -O acme_install.sh https://raw.githubusercontent.com/vipfan/btpanel5.9.1/master/acme_install.sh
 nohup bash acme_install.sh &> /dev/null &
 sleep 1
 rm -f acme_install.sh
